@@ -1,0 +1,300 @@
+/* ===== Базовые правила ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* ширина элемента включает padding и border */
+}
+
+body {
+  margin: 0;
+  background: #f4f6fb;
+  color: #1f2937;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+}
+
+p {
+  margin: 0 0 0.75rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ограничивающий контейнер: контент не растягивается на весь экран */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.muted {
+  color: #6b7280;
+}
+
+/* Скрыто визуально, но доступно скринридерам */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ===== Ссылки и фокус ===== */
+a {
+  color: #315efb;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* ===== Шапка (Flexbox с переносом) ===== */
+.site-header {
+  background: #111827;
+  color: #ffffff;
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;           /* элементы переносятся на узком экране */
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.logo img {
+  display: block;
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav__link {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.25rem 0;
+}
+
+.nav__link:hover {
+  text-decoration: underline;
+}
+
+.nav__link:focus-visible {
+  outline-color: #ffffff;
+}
+
+/* ===== Разделы ===== */
+.section {
+  margin: 2rem 0;
+  scroll-margin-top: 1rem;
+}
+
+/* ===== Первый экран ===== */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+}
+
+.hero__text {
+  flex: 1 1 18rem;
+}
+
+.hero__image {
+  flex: 1 1 18rem;
+  min-width: 0; /* иначе картинка не сжимается ниже своего исходного размера */
+  border-radius: 18px;
+}
+
+/* ===== Кнопка ===== */
+.btn {
+  display: inline-block;
+  background: #315efb;
+  color: #ffffff;
+  border: 0;
+  border-radius: 10px;
+  padding: 0.6rem 1.1rem;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #2449c9;
+}
+
+/* ===== Карточки (Flexbox) ===== */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  flex: 1 1 16rem;
+  background: #ffffff;
+  border: 1px solid #d7dbe3;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+}
+
+.card__title {
+  margin-bottom: 0.5rem;
+}
+
+.card__value {
+  margin: 0;
+  color: #6b7280;
+}
+
+.pill {
+  display: inline-block;
+  background: #e9efff;
+  color: #315efb;
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem;
+  font-size: 0.85rem;
+}
+
+/* ===== Таблица ===== */
+.table-wrap {
+  overflow-x: auto; /* на узком экране прокручивается таблица, а не вся страница */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table thead th {
+  background: #eef2ff;
+}
+
+.table .num {
+  text-align: right;
+}
+
+/* ===== Форма ===== */
+.form {
+  max-width: 36rem;
+  background: #ffffff;
+  border: 1px solid #d7dbe3;
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.form__row--check {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form label {
+  font-weight: 700;
+}
+
+.form__row--check label {
+  font-weight: 400;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="number"],
+.form select,
+.form textarea {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #9ca3af;
+  border-radius: 8px;
+  font: inherit;
+}
+
+/* Состояние ошибки: показывается после того, как пользователь ввёл неверное значение */
+.form input:user-invalid,
+.form select:user-invalid,
+.form textarea:user-invalid {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+/* ===== Подвал ===== */
+.site-footer {
+  background: #111827;
+  color: #d1d5db;
+  padding: 1.25rem 0;
+  margin-top: 2rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* ===== Адаптивность для мобильных ===== */
+@media (max-width: 720px) {
+  .site-header__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero {
+    padding: 1.25rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .form {
+    padding: 1rem;
+  }
+}
